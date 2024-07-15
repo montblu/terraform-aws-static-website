@@ -33,3 +33,8 @@ variable "cors_allowed_origins" {
   type        = list(string)
   default     = []
 }
+variable "response_headers_policy_id" {
+  description = "Response Headers Policy ID"
+  type        = string
+  default     = null
+}

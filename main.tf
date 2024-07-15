@@ -108,6 +108,8 @@ resource "aws_cloudfront_distribution" "web_dist" {
     target_origin_id = local.s3_origin_id
     compress         = true
 
+    response_headers_policy_id = var.response_headers_policy_id
+
     forwarded_values {
       query_string = false
       headers      = ["Origin", "Access-Control-Request-Method", "Access-Control-Request-Headers"]
@@ -139,7 +141,7 @@ resource "aws_cloudfront_distribution" "web_dist" {
 
   viewer_certificate {
     acm_certificate_arn      = aws_acm_certificate_validation.cert.certificate_arn
-    minimum_protocol_version = "TLSv1.1_2016"
+    minimum_protocol_version = "TLSv1.2_2021"
     ssl_support_method       = "sni-only"
   }
 }
