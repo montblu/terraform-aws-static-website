@@ -38,3 +38,8 @@ variable "response_headers_policy_id" {
   type        = string
   default     = null
 }
+variable "web_acl_id" {
+  description = "Web ACL ID"
+  type        = string
+  default     = null
+}
